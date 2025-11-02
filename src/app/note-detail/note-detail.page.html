@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>Detalhe da Nota</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="deleteNote()">Apagar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-label position="stacked">Título / Descrição</ion-label>
+    <ion-input [(ngModel)]="note.text" placeholder="Escreve a tua nota..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-segment [(ngModel)]="note.status">
+      <ion-segment-button value="TODO">
+        <ion-label>TODO</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="DONE">
+        <ion-label>DONE</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Prioridade</ion-label>
+    <ion-segment [(ngModel)]="note.priority">
+      <ion-segment-button value="BAIXA">
+        <ion-label>BAIXA</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="NORMAL">
+        <ion-label>NORMAL</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="CRITICA">
+        <ion-label>CRÍTICA</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="saveNote()">
+      <ion-icon name="save-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
